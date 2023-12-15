@@ -30,8 +30,7 @@ class UserInfo {
   );
 
   /// @nodoc
-  factory UserInfo.fromJson(Map<String, dynamic> json) =>
-      _$UserInfoFromJson(json);
+  factory UserInfo.fromJson(Map<String, dynamic> json) => _$UserInfoFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$UserInfoToJson(this);
@@ -63,8 +62,7 @@ class VideoDimensions {
   });
 
   /// @nodoc
-  factory VideoDimensions.fromJson(Map<String, dynamic> json) =>
-      _$VideoDimensionsFromJson(json);
+  factory VideoDimensions.fromJson(Map<String, dynamic> json) => _$VideoDimensionsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$VideoDimensionsToJson(this);
@@ -149,8 +147,7 @@ class VideoEncoderConfiguration {
   });
 
   /// @nodoc
-  factory VideoEncoderConfiguration.fromJson(Map<String, dynamic> json) =>
-      _$VideoEncoderConfigurationFromJson(json);
+  factory VideoEncoderConfiguration.fromJson(Map<String, dynamic> json) => _$VideoEncoderConfigurationFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$VideoEncoderConfigurationToJson(this);
@@ -198,8 +195,7 @@ class BeautyOptions {
   });
 
   /// @nodoc
-  factory BeautyOptions.fromJson(Map<String, dynamic> json) =>
-      _$BeautyOptionsFromJson(json);
+  factory BeautyOptions.fromJson(Map<String, dynamic> json) => _$BeautyOptionsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$BeautyOptionsToJson(this);
@@ -248,8 +244,7 @@ class AgoraImage {
   });
 
   /// @nodoc
-  factory AgoraImage.fromJson(Map<String, dynamic> json) =>
-      _$AgoraImageFromJson(json);
+  factory AgoraImage.fromJson(Map<String, dynamic> json) => _$AgoraImageFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$AgoraImageToJson(this);
@@ -345,8 +340,7 @@ class TranscodingUser {
   });
 
   /// @nodoc
-  factory TranscodingUser.fromJson(Map<String, dynamic> json) =>
-      _$TranscodingUserFromJson(json);
+  factory TranscodingUser.fromJson(Map<String, dynamic> json) => _$TranscodingUserFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$TranscodingUserToJson(this);
@@ -396,8 +390,7 @@ class LiveTranscoding {
   ///  false: (Default) High latency with assured quality.
   ///
   ///
-  @Deprecated(
-      'This attribute is deprecated since v2.8.0, and Agora does not recommend it.')
+  @Deprecated('This attribute is deprecated since v2.8.0, and Agora does not recommend it.')
   @JsonKey(includeIfNull: false)
   bool? lowLatency;
 
@@ -507,8 +500,7 @@ class LiveTranscoding {
   });
 
   /// @nodoc
-  factory LiveTranscoding.fromJson(Map<String, dynamic> json) =>
-      _$LiveTranscodingFromJson(json);
+  factory LiveTranscoding.fromJson(Map<String, dynamic> json) => _$LiveTranscodingFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LiveTranscodingToJson(this);
@@ -544,8 +536,7 @@ class ChannelMediaInfo {
   });
 
   /// @nodoc
-  factory ChannelMediaInfo.fromJson(Map<String, dynamic> json) =>
-      _$ChannelMediaInfoFromJson(json);
+  factory ChannelMediaInfo.fromJson(Map<String, dynamic> json) => _$ChannelMediaInfoFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ChannelMediaInfoToJson(this);
@@ -626,8 +617,7 @@ class LastmileProbeConfig {
   );
 
   /// @nodoc
-  factory LastmileProbeConfig.fromJson(Map<String, dynamic> json) =>
-      _$LastmileProbeConfigFromJson(json);
+  factory LastmileProbeConfig.fromJson(Map<String, dynamic> json) => _$LastmileProbeConfigFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LastmileProbeConfigToJson(this);
@@ -672,8 +662,7 @@ class Rectangle {
   });
 
   /// @nodoc
-  factory Rectangle.fromJson(Map<String, dynamic> json) =>
-      _$RectangleFromJson(json);
+  factory Rectangle.fromJson(Map<String, dynamic> json) => _$RectangleFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$RectangleToJson(this);
@@ -714,8 +703,7 @@ class WatermarkOptions {
   });
 
   /// @nodoc
-  factory WatermarkOptions.fromJson(Map<String, dynamic> json) =>
-      _$WatermarkOptionsFromJson(json);
+  factory WatermarkOptions.fromJson(Map<String, dynamic> json) => _$WatermarkOptionsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$WatermarkOptionsToJson(this);
@@ -793,8 +781,7 @@ class LiveInjectStreamConfig {
   });
 
   /// @nodoc
-  factory LiveInjectStreamConfig.fromJson(Map<String, dynamic> json) =>
-      _$LiveInjectStreamConfigFromJson(json);
+  factory LiveInjectStreamConfig.fromJson(Map<String, dynamic> json) => _$LiveInjectStreamConfigFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LiveInjectStreamConfigToJson(this);
@@ -902,8 +889,7 @@ class ChannelMediaOptions {
   });
 
   /// @nodoc
-  factory ChannelMediaOptions.fromJson(Map<String, dynamic> json) =>
-      _$ChannelMediaOptionsFromJson(json);
+  factory ChannelMediaOptions.fromJson(Map<String, dynamic> json) => _$ChannelMediaOptionsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ChannelMediaOptionsToJson(this);
@@ -947,8 +933,7 @@ class EncryptionConfig {
   });
 
   /// @nodoc
-  factory EncryptionConfig.fromJson(Map<String, dynamic> json) =>
-      _$EncryptionConfigFromJson(json);
+  factory EncryptionConfig.fromJson(Map<String, dynamic> json) => _$EncryptionConfigFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$EncryptionConfigToJson(this);
@@ -1110,8 +1095,7 @@ class RtcStats {
   );
 
   /// @nodoc
-  factory RtcStats.fromJson(Map<String, dynamic> json) =>
-      _$RtcStatsFromJson(json);
+  factory RtcStats.fromJson(Map<String, dynamic> json) => _$RtcStatsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$RtcStatsToJson(this);
@@ -1160,8 +1144,7 @@ class AudioVolumeInfo {
   );
 
   /// @nodoc
-  factory AudioVolumeInfo.fromJson(Map<String, dynamic> json) =>
-      _$AudioVolumeInfoFromJson(json);
+  factory AudioVolumeInfo.fromJson(Map<String, dynamic> json) => _$AudioVolumeInfoFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$AudioVolumeInfoToJson(this);
@@ -1270,8 +1253,7 @@ class LastmileProbeOneWayResult {
   );
 
   /// @nodoc
-  factory LastmileProbeOneWayResult.fromJson(Map<String, dynamic> json) =>
-      _$LastmileProbeOneWayResultFromJson(json);
+  factory LastmileProbeOneWayResult.fromJson(Map<String, dynamic> json) => _$LastmileProbeOneWayResultFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LastmileProbeOneWayResultToJson(this);
@@ -1312,8 +1294,7 @@ class LastmileProbeResult {
   );
 
   /// @nodoc
-  factory LastmileProbeResult.fromJson(Map<String, dynamic> json) =>
-      _$LastmileProbeResultFromJson(json);
+  factory LastmileProbeResult.fromJson(Map<String, dynamic> json) => _$LastmileProbeResultFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LastmileProbeResultToJson(this);
@@ -1354,8 +1335,7 @@ class LocalAudioStats {
   );
 
   /// @nodoc
-  factory LocalAudioStats.fromJson(Map<String, dynamic> json) =>
-      _$LocalAudioStatsFromJson(json);
+  factory LocalAudioStats.fromJson(Map<String, dynamic> json) => _$LocalAudioStatsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LocalAudioStatsToJson(this);
@@ -1466,8 +1446,7 @@ class LocalVideoStats {
   );
 
   /// @nodoc
-  factory LocalVideoStats.fromJson(Map<String, dynamic> json) =>
-      _$LocalVideoStatsFromJson(json);
+  factory LocalVideoStats.fromJson(Map<String, dynamic> json) => _$LocalVideoStatsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LocalVideoStatsToJson(this);
@@ -1589,8 +1568,7 @@ class RemoteAudioStats {
   );
 
   /// @nodoc
-  factory RemoteAudioStats.fromJson(Map<String, dynamic> json) =>
-      _$RemoteAudioStatsFromJson(json);
+  factory RemoteAudioStats.fromJson(Map<String, dynamic> json) => _$RemoteAudioStatsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$RemoteAudioStatsToJson(this);
@@ -1695,8 +1673,7 @@ class RemoteVideoStats {
   );
 
   /// @nodoc
-  factory RemoteVideoStats.fromJson(Map<String, dynamic> json) =>
-      _$RemoteVideoStatsFromJson(json);
+  factory RemoteVideoStats.fromJson(Map<String, dynamic> json) => _$RemoteVideoStatsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$RemoteVideoStatsToJson(this);
@@ -1748,8 +1725,7 @@ class FacePositionInfo {
   );
 
   /// @nodoc
-  factory FacePositionInfo.fromJson(Map<String, dynamic> json) =>
-      _$FacePositionInfoFromJson(json);
+  factory FacePositionInfo.fromJson(Map<String, dynamic> json) => _$FacePositionInfoFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$FacePositionInfoToJson(this);
@@ -1773,8 +1749,7 @@ class ClientRoleOptions {
   });
 
   /// @nodoc
-  factory ClientRoleOptions.fromJson(Map<String, dynamic> json) =>
-      _$ClientRoleOptionsFromJson(json);
+  factory ClientRoleOptions.fromJson(Map<String, dynamic> json) => _$ClientRoleOptionsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ClientRoleOptionsToJson(this);
@@ -1813,8 +1788,7 @@ class LogConfig {
   });
 
   /// @nodoc
-  factory LogConfig.fromJson(Map<String, dynamic> json) =>
-      _$LogConfigFromJson(json);
+  factory LogConfig.fromJson(Map<String, dynamic> json) => _$LogConfigFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LogConfigToJson(this);
@@ -1849,8 +1823,7 @@ class DataStreamConfig {
   );
 
   /// @nodoc
-  factory DataStreamConfig.fromJson(Map<String, dynamic> json) =>
-      _$DataStreamConfigFromJson(json);
+  factory DataStreamConfig.fromJson(Map<String, dynamic> json) => _$DataStreamConfigFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$DataStreamConfigToJson(this);
@@ -1861,8 +1834,7 @@ class DataStreamConfig {
 @Deprecated('Please use RtcEngineContext instead.')
 class RtcEngineConfig extends RtcEngineContext {
   /// @nodoc
-  RtcEngineConfig(String appId,
-      {List<AreaCode>? areaCode, LogConfig? logConfig})
+  RtcEngineConfig(String appId, {List<AreaCode>? areaCode, LogConfig? logConfig})
       : super(appId, areaCode: areaCode, logConfig: logConfig);
 }
 
@@ -1903,8 +1875,7 @@ class RtcEngineContext {
   });
 
   /// @nodoc
-  factory RtcEngineContext.fromJson(Map<String, dynamic> json) =>
-      _$RtcEngineContextFromJson(json);
+  factory RtcEngineContext.fromJson(Map<String, dynamic> json) => _$RtcEngineContextFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$RtcEngineContextToJson(this);
@@ -1953,8 +1924,7 @@ class RhythmPlayerConfig {
   });
 
   /// @nodoc
-  factory RhythmPlayerConfig.fromJson(Map<String, dynamic> json) =>
-      _$RhythmPlayerConfigFromJson(json);
+  factory RhythmPlayerConfig.fromJson(Map<String, dynamic> json) => _$RhythmPlayerConfigFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$RhythmPlayerConfigToJson(this);
@@ -2062,8 +2032,7 @@ class VirtualBackgroundSource {
   });
 
   /// @nodoc
-  factory VirtualBackgroundSource.fromJson(Map<String, dynamic> json) =>
-      _$VirtualBackgroundSourceFromJson(json);
+  factory VirtualBackgroundSource.fromJson(Map<String, dynamic> json) => _$VirtualBackgroundSourceFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$VirtualBackgroundSourceToJson(this);
@@ -2094,8 +2063,7 @@ class AudioFileInfo {
   });
 
   /// @nodoc
-  factory AudioFileInfo.fromJson(Map<String, dynamic> json) =>
-      _$AudioFileInfoFromJson(json);
+  factory AudioFileInfo.fromJson(Map<String, dynamic> json) => _$AudioFileInfoFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$AudioFileInfoToJson(this);
@@ -2152,8 +2120,7 @@ class EchoTestConfiguration {
   });
 
   /// @nodoc
-  factory EchoTestConfiguration.fromJson(Map<String, dynamic> json) =>
-      _$EchoTestConfigurationFromJson(json);
+  factory EchoTestConfiguration.fromJson(Map<String, dynamic> json) => _$EchoTestConfigurationFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$EchoTestConfigurationToJson(this);
@@ -2182,8 +2149,7 @@ class MediaDeviceInfo {
   );
 
   /// @nodoc
-  factory MediaDeviceInfo.fromJson(Map<String, dynamic> json) =>
-      _$MediaDeviceInfoFromJson(json);
+  factory MediaDeviceInfo.fromJson(Map<String, dynamic> json) => _$MediaDeviceInfoFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$MediaDeviceInfoToJson(this);
@@ -2247,8 +2213,7 @@ class ScreenCaptureParameters {
   });
 
   /// @nodoc
-  factory ScreenCaptureParameters.fromJson(Map<String, dynamic> json) =>
-      _$ScreenCaptureParametersFromJson(json);
+  factory ScreenCaptureParameters.fromJson(Map<String, dynamic> json) => _$ScreenCaptureParametersFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ScreenCaptureParametersToJson(this);
@@ -2269,7 +2234,7 @@ class Metadata {
   ///
   /// The buffer address of the sent or received Metadata.
   ///
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Uint8List? buffer;
 
   ///
@@ -2281,8 +2246,7 @@ class Metadata {
   Metadata(this.uid, this.timeStampMs);
 
   /// @nodoc
-  factory Metadata.fromJson(Map<String, dynamic> json) =>
-      _$MetadataFromJson(json);
+  factory Metadata.fromJson(Map<String, dynamic> json) => _$MetadataFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$MetadataToJson(this);
@@ -2329,8 +2293,7 @@ class MediaRecorderConfiguration {
   });
 
   /// @nodoc
-  factory MediaRecorderConfiguration.fromJson(Map<String, dynamic> json) =>
-      _$MediaRecorderConfigurationFromJson(json);
+  factory MediaRecorderConfiguration.fromJson(Map<String, dynamic> json) => _$MediaRecorderConfigurationFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$MediaRecorderConfigurationToJson(this);
@@ -2361,8 +2324,7 @@ class RecorderInfo {
   RecorderInfo(this.fileName, this.durationMs, this.fileSize);
 
   /// @nodoc
-  factory RecorderInfo.fromJson(Map<String, dynamic> json) =>
-      _$RecorderInfoFromJson(json);
+  factory RecorderInfo.fromJson(Map<String, dynamic> json) => _$RecorderInfoFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$RecorderInfoToJson(this);
@@ -2418,13 +2380,10 @@ class LowLightEnhanceOptions {
   final LowLightEnhanceLevel level;
 
   /// @nodoc
-  const LowLightEnhanceOptions(
-      {this.mode = LowLightEnhanceMode.Auto,
-      this.level = LowLightEnhanceLevel.HighQuality});
+  const LowLightEnhanceOptions({this.mode = LowLightEnhanceMode.Auto, this.level = LowLightEnhanceLevel.HighQuality});
 
   /// @nodoc
-  factory LowLightEnhanceOptions.fromJson(Map<String, dynamic> json) =>
-      _$LowLightEnhanceOptionsFromJson(json);
+  factory LowLightEnhanceOptions.fromJson(Map<String, dynamic> json) => _$LowLightEnhanceOptionsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$LowLightEnhanceOptionsToJson(this);
@@ -2447,13 +2406,10 @@ class VideoDenoiserOptions {
   final VideoDenoiserLevel level;
 
   /// @nodoc
-  const VideoDenoiserOptions(
-      {this.mode = VideoDenoiserMode.Auto,
-      this.level = VideoDenoiserLevel.HighQuality});
+  const VideoDenoiserOptions({this.mode = VideoDenoiserMode.Auto, this.level = VideoDenoiserLevel.HighQuality});
 
   /// @nodoc
-  factory VideoDenoiserOptions.fromJson(Map<String, dynamic> json) =>
-      _$VideoDenoiserOptionsFromJson(json);
+  factory VideoDenoiserOptions.fromJson(Map<String, dynamic> json) => _$VideoDenoiserOptionsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$VideoDenoiserOptionsToJson(this);
@@ -2476,12 +2432,10 @@ class ColorEnhanceOptions {
   final double skinProtectLevel;
 
   /// @nodoc
-  const ColorEnhanceOptions(
-      {this.strengthLevel = 0.0, this.skinProtectLevel = 1.0});
+  const ColorEnhanceOptions({this.strengthLevel = 0.0, this.skinProtectLevel = 1.0});
 
   /// @nodoc
-  factory ColorEnhanceOptions.fromJson(Map<String, dynamic> json) =>
-      _$ColorEnhanceOptionsFromJson(json);
+  factory ColorEnhanceOptions.fromJson(Map<String, dynamic> json) => _$ColorEnhanceOptionsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ColorEnhanceOptionsToJson(this);
@@ -2509,8 +2463,7 @@ class ScreenCaptureInfo {
   const ScreenCaptureInfo(this.graphicsCardType, this.errCode);
 
   /// @nodoc
-  factory ScreenCaptureInfo.fromJson(Map<String, dynamic> json) =>
-      _$ScreenCaptureInfoFromJson(json);
+  factory ScreenCaptureInfo.fromJson(Map<String, dynamic> json) => _$ScreenCaptureInfoFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ScreenCaptureInfoToJson(this);
@@ -2529,12 +2482,10 @@ class WlAccStats {
   final int lossRatePercent;
 
   /// @nodoc
-  const WlAccStats(
-      this.e2eDelayPercent, this.frozenRatioPercent, this.lossRatePercent);
+  const WlAccStats(this.e2eDelayPercent, this.frozenRatioPercent, this.lossRatePercent);
 
   /// @nodoc
-  factory WlAccStats.fromJson(Map<String, dynamic> json) =>
-      _$WlAccStatsFromJson(json);
+  factory WlAccStats.fromJson(Map<String, dynamic> json) => _$WlAccStatsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$WlAccStatsToJson(this);
@@ -2553,8 +2504,7 @@ class ContentInspectModule {
   const ContentInspectModule({this.type = 0, this.interval = 0});
 
   /// @nodoc
-  factory ContentInspectModule.fromJson(Map<String, dynamic> json) =>
-      _$ContentInspectModuleFromJson(json);
+  factory ContentInspectModule.fromJson(Map<String, dynamic> json) => _$ContentInspectModuleFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ContentInspectModuleToJson(this);
@@ -2573,12 +2523,10 @@ class ContentInspectConfig {
   final int moduleCount;
 
   /// Constructs the [ContentInspectConfig].
-  const ContentInspectConfig(
-      {required this.modules, this.extraInfo, this.moduleCount = 0});
+  const ContentInspectConfig({required this.modules, this.extraInfo, this.moduleCount = 0});
 
   /// @nodoc
-  factory ContentInspectConfig.fromJson(Map<String, dynamic> json) =>
-      _$ContentInspectConfigFromJson(json);
+  factory ContentInspectConfig.fromJson(Map<String, dynamic> json) => _$ContentInspectConfigFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ContentInspectConfigToJson(this);
@@ -2621,8 +2569,7 @@ class SpatialAudioParams {
       this.enableAirAbsorb});
 
   /// @nodoc
-  factory SpatialAudioParams.fromJson(Map<String, dynamic> json) =>
-      _$SpatialAudioParamsFromJson(json);
+  factory SpatialAudioParams.fromJson(Map<String, dynamic> json) => _$SpatialAudioParamsFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$SpatialAudioParamsToJson(this);
@@ -2644,8 +2591,7 @@ class ScreenAudioParameters {
   const ScreenAudioParameters(this.captureSignalVolume);
 
   /// @nodoc
-  factory ScreenAudioParameters.fromJson(Map<String, dynamic> json) =>
-      _$ScreenAudioParametersFromJson(json);
+  factory ScreenAudioParameters.fromJson(Map<String, dynamic> json) => _$ScreenAudioParametersFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ScreenAudioParametersToJson(this);
@@ -2686,12 +2632,10 @@ class ScreenVideoParameters {
   final VideoContentHint? contentHint;
 
   /// Constructs the [ScreenVideoParameters].
-  const ScreenVideoParameters(
-      {this.dimensions, this.frameRate, this.bitrate, this.contentHint});
+  const ScreenVideoParameters({this.dimensions, this.frameRate, this.bitrate, this.contentHint});
 
   /// @nodoc
-  factory ScreenVideoParameters.fromJson(Map<String, dynamic> json) =>
-      _$ScreenVideoParametersFromJson(json);
+  factory ScreenVideoParameters.fromJson(Map<String, dynamic> json) => _$ScreenVideoParametersFromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ScreenVideoParametersToJson(this);
@@ -2738,8 +2682,7 @@ class ScreenCaptureParameters2 {
   });
 
   /// @nodoc
-  factory ScreenCaptureParameters2.fromJson(Map<String, dynamic> json) =>
-      _$ScreenCaptureParameters2FromJson(json);
+  factory ScreenCaptureParameters2.fromJson(Map<String, dynamic> json) => _$ScreenCaptureParameters2FromJson(json);
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$ScreenCaptureParameters2ToJson(this);

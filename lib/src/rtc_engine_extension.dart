@@ -60,11 +60,7 @@ class Display {
 
   /// @nodoc
   factory Display.from(_Display _display) => Display._(
-      _display.id,
-      _display.scale,
-      _display.bounds.toRectangle(),
-      _display.work_area.toRectangle(),
-      _display.rotation);
+      _display.id, _display.scale, _display.bounds.toRectangle(), _display.work_area.toRectangle(), _display.rotation);
 }
 
 class _DisplayCollection extends Struct {
@@ -107,16 +103,13 @@ class Window {
 
   /// @nodoc
   factory Window.from(_Window _window) {
-    final name =
-        utf8.decode(Iterable<int>.generate(_kBasicResultLength, (index) {
+    final name = utf8.decode(Iterable<int>.generate(_kBasicResultLength, (index) {
       return _window.name[index];
     }).where((element) => element != 0).toList());
-    final owner_name =
-        utf8.decode(Iterable<int>.generate(_kBasicResultLength, (index) {
+    final owner_name = utf8.decode(Iterable<int>.generate(_kBasicResultLength, (index) {
       return _window.owner_name[index];
     }).where((element) => element != 0).toList());
-    return Window._(_window.id, name, owner_name, _window.bounds.toRectangle(),
-        _window.work_area.toRectangle());
+    return Window._(_window.id, name, owner_name, _window.bounds.toRectangle(), _window.work_area.toRectangle());
   }
 }
 
@@ -126,31 +119,22 @@ class _WindowCollection extends Struct {
   external int length;
 }
 
-final DynamicLibrary _nativeLib = Platform.isMacOS
-    ? DynamicLibrary.process()
-    : DynamicLibrary.open('AgoraRtcWrapper.dll');
+final DynamicLibrary _nativeLib =
+    Platform.isMacOS ? DynamicLibrary.process() : DynamicLibrary.open('AgoraRtcWrapper.dll');
 
-final Pointer<_DisplayCollection> Function() _EnumerateDisplays = _nativeLib
-    .lookup<NativeFunction<Pointer<_DisplayCollection> Function()>>(
-        'EnumerateDisplays')
+final Pointer<_DisplayCollection> Function() _EnumerateDisplays =
+    _nativeLib.lookup<NativeFunction<Pointer<_DisplayCollection> Function()>>('EnumerateDisplays').asFunction();
+
+final void Function(Pointer<_DisplayCollection>) _FreeDisplayCollection = _nativeLib
+    .lookup<NativeFunction<Void Function(Pointer<_DisplayCollection>)>>('FreeIrisDisplayCollection')
     .asFunction();
 
-final void Function(Pointer<_DisplayCollection>) _FreeDisplayCollection =
-    _nativeLib
-        .lookup<NativeFunction<Void Function(Pointer<_DisplayCollection>)>>(
-            'FreeIrisDisplayCollection')
-        .asFunction();
+final Pointer<_WindowCollection> Function() _EnumerateWindows =
+    _nativeLib.lookup<NativeFunction<Pointer<_WindowCollection> Function()>>('EnumerateWindows').asFunction();
 
-final Pointer<_WindowCollection> Function() _EnumerateWindows = _nativeLib
-    .lookup<NativeFunction<Pointer<_WindowCollection> Function()>>(
-        'EnumerateWindows')
+final void Function(Pointer<_WindowCollection>) _FreeWindowCollection = _nativeLib
+    .lookup<NativeFunction<Void Function(Pointer<_WindowCollection>)>>('FreeIrisWindowCollection')
     .asFunction();
-
-final void Function(Pointer<_WindowCollection>) _FreeWindowCollection =
-    _nativeLib
-        .lookup<NativeFunction<Void Function(Pointer<_WindowCollection>)>>(
-            'FreeIrisWindowCollection')
-        .asFunction();
 
 ///
 /// The RtcEngineExtension class.
@@ -166,8 +150,7 @@ extension RtcEngineExtension on RtcEngine {
   /// **return** The actual path of the asset.
   ///
   Future<String?> getAssetAbsolutePath(String assetPath) {
-    return RtcEngineImpl.methodChannel
-        .invokeMethod('getAssetAbsolutePath', assetPath);
+    return RtcEngineImpl.methodChannel.invokeMethod('getAssetAbsolutePath', assetPath);
   }
 
   ///

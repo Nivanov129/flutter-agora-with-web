@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:agora_rtc_engine/src/impl/rtc_engine_impl.dart';
 import 'package:agora_rtc_engine/src/rtc_engine_event_handler.dart';
@@ -58,8 +57,7 @@ abstract class RtcEngine {
   ///  An error code, if the call fails.
   ///
   @Deprecated('This method is deprecated. Use createWithContext instead.')
-  static Future<RtcEngine> createWithAreaCode(
-      String appId, List<AreaCode> areaCode) {
+  static Future<RtcEngine> createWithAreaCode(String appId, List<AreaCode> areaCode) {
     return createWithContext(RtcEngineContext(appId, areaCode: areaCode));
   }
 
@@ -184,8 +182,7 @@ abstract class RtcEngine {
   /// Param [options] The channel media options.
   ///
   ///
-  Future<void> joinChannel(
-      String? token, String channelName, String? optionalInfo, int optionalUid,
+  Future<void> joinChannel(String? token, String channelName, String? optionalInfo, int optionalUid,
       [ChannelMediaOptions? options]);
 
   ///
@@ -206,8 +203,7 @@ abstract class RtcEngine {
   ///
   /// Param [options] The channel media options. See ChannelMediaOptions.
   ///
-  Future<void> switchChannel(String? token, String channelName,
-      [ChannelMediaOptions? options]);
+  Future<void> switchChannel(String? token, String channelName, [ChannelMediaOptions? options]);
 
   ///
   /// Leaves a channel.
@@ -256,8 +252,7 @@ abstract class RtcEngine {
   /// Reports customized messages.
   /// Agora supports reporting and analyzing customized messages. This function is in the beta stage with a free trial. The ability provided in its beta test version is reporting a maximum of 10 message pieces within 6 seconds, with each message piece not exceeding 256 bytes and each string not exceeding 100 bytes. To try out this function, contact and discuss the format of customized messages with us.
   ///
-  Future<void> sendCustomReportMessage(
-      String id, String category, String event, String label, int value);
+  Future<void> sendCustomReportMessage(String id, String category, String event, String label, int value);
 
   ///
   /// Retrieves the call ID.
@@ -415,8 +410,7 @@ abstract class RtcEngine {
   ///
   /// Param [backgroundSource] The custom background image. See VirtualBackgroundSource for details. To adapt the resolution of the custom background image to that of the video captured by the SDK, the SDK scales and crops the custom background image while ensuring that the content of the custom background image is not distorted.
   ///
-  Future<void> enableVirtualBackground(
-      bool enabled, VirtualBackgroundSource backgroundSource);
+  Future<void> enableVirtualBackground(bool enabled, VirtualBackgroundSource backgroundSource);
 
   ///
   /// Takes a snapshot of a video stream.
@@ -478,8 +472,7 @@ abstract class RtcEngine {
   ///  Space
   ///  "!", "#", "$", "%", "&", "(", ")", "+", "-", ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", "{", "}", "|", "~", ","
   ///
-  Future<void> joinChannelWithUserAccount(
-      String? token, String channelName, String userAccount,
+  Future<void> joinChannelWithUserAccount(String? token, String channelName, String userAccount,
       [ChannelMediaOptions? options]);
 
   ///
@@ -656,8 +649,7 @@ abstract class RtcEngine {
   ///  false: (Default) Disable the voice activity detection of the local user. Once it is disabled, the vad parameter of the audioVolumeIndication callback does not report the voice activity status of the local user, except for the scenario where the engine automatically detects the voice activity of the local user.
   ///
   ///
-  Future<void> enableAudioVolumeIndication(
-      int interval, int smooth, bool report_vad);
+  Future<void> enableAudioVolumeIndication(int interval, int smooth, bool report_vad);
 
   ///
   /// Enables the video module.
@@ -837,9 +829,7 @@ abstract class RtcEngine {
   ///
   /// Param [startPos] The playback position (ms) of the music file.
   ///
-  Future<void> startAudioMixing(
-      String filePath, bool loopback, bool replace, int cycle,
-      [int? startPos]);
+  Future<void> startAudioMixing(String filePath, bool loopback, bool replace, int cycle, [int? startPos]);
 
   ///
   /// Stops playing and mixing the music file.
@@ -914,8 +904,7 @@ abstract class RtcEngine {
   /// **return** ≥ 0: A successful method call. Returns the total duration (ms) of the specified music file.
   ///  < 0: Failure.
   ///
-  @Deprecated(
-      'This method is deprecated as of v4.1.0. Use getAudioFileInfo instead.')
+  @Deprecated('This method is deprecated as of v4.1.0. Use getAudioFileInfo instead.')
   Future<int?> getAudioMixingDuration([String? filePath]);
 
   ///
@@ -1070,8 +1059,7 @@ abstract class RtcEngine {
   /// Param [startPos] The playback position (ms) of the audio effect file.
   ///
   ///
-  Future<void> playEffect(int soundId, String filePath, int loopCount,
-      double pitch, double pan, int gain, bool publish,
+  Future<void> playEffect(int soundId, String filePath, int loopCount, double pitch, double pan, int gain, bool publish,
       [int? startPos]);
 
   ///
@@ -1181,8 +1169,7 @@ abstract class RtcEngine {
   ///
   /// Param [restriction] The operational permission of the SDK on the audio session. See AudioSessionOperationRestriction . This parameter is in bit mask format, and each bit corresponds to a permission.
   ///
-  Future<void> setAudioSessionOperationRestriction(
-      AudioSessionOperationRestriction restriction);
+  Future<void> setAudioSessionOperationRestriction(AudioSessionOperationRestriction restriction);
 
   ///
   /// Sets the local voice changer option.
@@ -1234,8 +1221,7 @@ abstract class RtcEngine {
   ///
   /// Param [bandGain] The gain of each band in dB. The value ranges between -15 and 15. The default value is 0.
   ///
-  Future<void> setLocalVoiceEqualization(
-      AudioEqualizationBandFrequency bandFrequency, int bandGain);
+  Future<void> setLocalVoiceEqualization(AudioEqualizationBandFrequency bandFrequency, int bandGain);
 
   ///
   /// Sets the local voice reverberation.
@@ -1351,8 +1337,7 @@ abstract class RtcEngine {
   ///  11: G
   ///  12: G#
   ///
-  Future<void> setAudioEffectParameters(
-      AudioEffectPreset preset, int param1, int param2);
+  Future<void> setAudioEffectParameters(AudioEffectPreset preset, int param1, int param2);
 
   ///
   /// Sets parameters for the preset voice beautifier effects.
@@ -1383,8 +1368,7 @@ abstract class RtcEngine {
   ///  3: The reverberation effect sounds like singing in a hall.
   ///
   ///
-  Future<void> setVoiceBeautifierParameters(
-      VoiceBeautifierPreset preset, int param1, int param2);
+  Future<void> setVoiceBeautifierParameters(VoiceBeautifierPreset preset, int param1, int param2);
 
   ///
   /// Enables/Disables stereo panning for remote users.
@@ -1474,8 +1458,7 @@ abstract class RtcEngine {
   ///
   /// Param [channelMediaRelayConfiguration] The configuration of the media stream relay. See ChannelMediaRelayConfiguration for details.
   ///
-  Future<void> startChannelMediaRelay(
-      ChannelMediaRelayConfiguration channelMediaRelayConfiguration);
+  Future<void> startChannelMediaRelay(ChannelMediaRelayConfiguration channelMediaRelayConfiguration);
 
   ///
   /// Updates the channels for media stream relay.
@@ -1485,8 +1468,7 @@ abstract class RtcEngine {
   ///
   /// Param [channelMediaRelayConfiguration] The configuration of the media stream relay.
   ///
-  Future<void> updateChannelMediaRelay(
-      ChannelMediaRelayConfiguration channelMediaRelayConfiguration);
+  Future<void> updateChannelMediaRelay(ChannelMediaRelayConfiguration channelMediaRelayConfiguration);
 
   ///
   /// Stops the media stream relay. Once the relay stops, the host quits all the destination channels.
@@ -1641,8 +1623,7 @@ abstract class RtcEngine {
   ///
   /// Param [intervalInSeconds] The time interval (s) between when you speak and when the recording plays back.
   ///
-  Future<void> startEchoTest(
-      {int? intervalInSeconds, EchoTestConfiguration? config});
+  Future<void> startEchoTest({int? intervalInSeconds, EchoTestConfiguration? config});
 
   ///
   /// Stops the audio call test.
@@ -1748,8 +1729,7 @@ abstract class RtcEngine {
   ///
   /// Param [secret] The encryption password.
   ///
-  @Deprecated(
-      'This method is deprecated from v3.2.0. Please use enableEncryption instead.')
+  @Deprecated('This method is deprecated from v3.2.0. Please use enableEncryption instead.')
   Future<void> setEncryptionSecret(String secret);
 
   ///
@@ -1767,8 +1747,7 @@ abstract class RtcEngine {
   ///  "": When this parameter is set as null, the encryption mode is set as "aes-128-gcm" by default.
   ///  "": When setting as NULL, the encryption mode is set as "aes-128-xts" by default.
   ///
-  @Deprecated(
-      'This method is deprecated from v3.2.0. Please use enableEncryption instead.')
+  @Deprecated('This method is deprecated from v3.2.0. Please use enableEncryption instead.')
   Future<void> setEncryptionMode(EncryptionMode encryptionMode);
 
   ///
@@ -1805,10 +1784,8 @@ abstract class RtcEngine {
   ///
   /// Param [quality] Recording quality.
   ///
-  @Deprecated(
-      'This method is deprecated as of v3.4.0. Please use startAudioRecordingWithConfig instead.')
-  Future<void> startAudioRecording(String filePath,
-      AudioSampleRateType sampleRate, AudioRecordingQuality quality);
+  @Deprecated('This method is deprecated as of v3.4.0. Please use startAudioRecordingWithConfig instead.')
+  Future<void> startAudioRecording(String filePath, AudioSampleRateType sampleRate, AudioRecordingQuality quality);
 
   ///
   /// Starts audio recording on the client.
@@ -1818,8 +1795,7 @@ abstract class RtcEngine {
   ///
   /// Param [config] Recording configuration. See AudioRecordingConfiguration .
   ///
-  Future<void> startAudioRecordingWithConfig(
-      AudioRecordingConfiguration config);
+  Future<void> startAudioRecordingWithConfig(AudioRecordingConfiguration config);
 
   ///
   /// Enables the virtual metronome.
@@ -1832,8 +1808,7 @@ abstract class RtcEngine {
   ///
   /// Param [config] The metronome configuration. See RhythmPlayerConfig .
   ///
-  Future<void> startRhythmPlayer(
-      String sound1, String sound2, RhythmPlayerConfig config);
+  Future<void> startRhythmPlayer(String sound1, String sound2, RhythmPlayerConfig config);
 
   ///
   /// Disables the virtual metronome.
@@ -1958,8 +1933,7 @@ abstract class RtcEngine {
   ///
   /// Param [positionY] The vertical coordinate of the touchpoint in the view.
   ///
-  Future<void> setCameraFocusPositionInPreview(
-      double positionX, double positionY);
+  Future<void> setCameraFocusPositionInPreview(double positionX, double positionY);
 
   ///
   /// Sets the camera exposure position.
@@ -1971,8 +1945,7 @@ abstract class RtcEngine {
   ///
   /// Param [positionYinView] The vertical coordinate of the touchpoint in the view.
   ///
-  Future<void> setCameraExposurePosition(
-      double positionXinView, double positionYinView);
+  Future<void> setCameraExposurePosition(double positionXinView, double positionYinView);
 
   ///
   /// Enables/Disables face detection for the local user.
@@ -2022,8 +1995,7 @@ abstract class RtcEngine {
   ///
   /// Param [config] The camera capturer configuration. See CameraCapturerConfiguration .
   ///
-  Future<void> setCameraCapturerConfiguration(
-      CameraCapturerConfiguration config);
+  Future<void> setCameraCapturerConfiguration(CameraCapturerConfiguration config);
 
   ///
   /// Creates a data stream.
@@ -2127,8 +2099,7 @@ abstract class RtcEngine {
   ///
   /// Param [captureParams] The screen sharing encoding parameters. The default video dimension is 1920 x 1080, that is, 2,073,600 pixels. Agora uses the value of this parameter to calculate the charges.
   ///
-  Future<void> updateScreenCaptureParameters(
-      ScreenCaptureParameters captureParams);
+  Future<void> updateScreenCaptureParameters(ScreenCaptureParameters captureParams);
 
   ///
   /// Updates the screen sharing configuration. This method is only available on Android and iOS.
@@ -2136,8 +2107,7 @@ abstract class RtcEngine {
   ///
   /// Param [parameters] The configuration of the screen sharing. See ScreenCaptureParameters2 .
   ///
-  Future<void> updateScreenCaptureParametersMobile(
-      ScreenCaptureParameters2 parameters);
+  Future<void> updateScreenCaptureParametersMobile(ScreenCaptureParameters2 parameters);
 
   ///
   /// Updates the screen sharing region.
@@ -2170,8 +2140,7 @@ abstract class RtcEngine {
   ///
   /// Param [bitrate] The bitrate of the screen share.
   ///
-  Future<void> startScreenCapture(int windowId,
-      [int captureFreq, Rect? rect, int bitrate]);
+  Future<void> startScreenCapture(int windowId, [int captureFreq, Rect? rect, int bitrate]);
 
   ///
   /// Starts screen sharing. This method is only available on Android and iOS.
@@ -2224,8 +2193,7 @@ abstract class RtcEngine {
   /// Param [transcoding] The transcoding configuration for Media Push. See LiveTranscoding .
   ///
   ///
-  Future<void> startRtmpStreamWithTranscoding(
-      String url, LiveTranscoding transcoding);
+  Future<void> startRtmpStreamWithTranscoding(String url, LiveTranscoding transcoding);
 
   ///
   /// Starts pushing media streams to a CDN without transcoding.
@@ -2270,8 +2238,7 @@ abstract class RtcEngine {
   ///
   /// Param [option] The low-light enhancement options.
   ///
-  Future<void> setLowlightEnhanceOptions(
-      bool enabled, LowLightEnhanceOptions option);
+  Future<void> setLowlightEnhanceOptions(bool enabled, LowLightEnhanceOptions option);
 
   ///
   /// Sets video noise reduction.
@@ -2285,8 +2252,7 @@ abstract class RtcEngine {
   ///
   /// Param [options] The video noise reduction options.
   ///
-  Future<void> setVideoDenoiserOptions(
-      bool enabled, VideoDenoiserOptions option);
+  Future<void> setVideoDenoiserOptions(bool enabled, VideoDenoiserOptions option);
 
   ///
   /// Sets color enhancement.
@@ -2306,8 +2272,7 @@ abstract class RtcEngine {
   Future<void> enableWirelessAccelerate(bool enabled);
 
   /// @nodoc
-  Future<void> setRemoteUserSpatialAudioParams(
-      int uid, SpatialAudioParams spatialAudioParams);
+  Future<void> setRemoteUserSpatialAudioParams(int uid, SpatialAudioParams spatialAudioParams);
 
   /// @nodoc
   Future<void> enableSpatialAudio(bool enabled);

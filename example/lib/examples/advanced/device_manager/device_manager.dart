@@ -141,11 +141,9 @@ class _State extends State<DeviceManager> {
     if (!(Platform.isWindows || Platform.isMacOS)) {
       return;
     }
-    final playbackDevices =
-        await _engine.deviceManager.enumerateAudioPlaybackDevices();
+    final playbackDevices = await _engine.deviceManager.enumerateAudioPlaybackDevices();
 
-    _selectedPlaybackDeviceId =
-        await _engine.deviceManager.getAudioPlaybackDevice() ?? '';
+    _selectedPlaybackDeviceId = await _engine.deviceManager.getAudioPlaybackDevice() ?? '';
 
     setState(() {
       this.playbackDevices = playbackDevices;
@@ -169,8 +167,7 @@ class _State extends State<DeviceManager> {
       onChanged: (v) async {
         _selectedPlaybackDeviceId = v!;
 
-        await _engine.deviceManager
-            .setAudioPlaybackDevice(_selectedPlaybackDeviceId);
+        await _engine.deviceManager.setAudioPlaybackDevice(_selectedPlaybackDeviceId);
 
         setState(() {});
       },
@@ -181,11 +178,9 @@ class _State extends State<DeviceManager> {
     if (!(Platform.isWindows || Platform.isMacOS)) {
       return;
     }
-    final recordings =
-        await _engine.deviceManager.enumerateAudioRecordingDevices();
+    final recordings = await _engine.deviceManager.enumerateAudioRecordingDevices();
 
-    _selectedRecordingDeviceId =
-        await _engine.deviceManager.getAudioRecordingDevice() ?? '';
+    _selectedRecordingDeviceId = await _engine.deviceManager.getAudioRecordingDevice() ?? '';
 
     setState(() {
       this.recordings = recordings;
@@ -209,8 +204,7 @@ class _State extends State<DeviceManager> {
       onChanged: (v) async {
         _selectedRecordingDeviceId = v!;
 
-        await _engine.deviceManager
-            .setAudioRecordingDevice(_selectedRecordingDeviceId);
+        await _engine.deviceManager.setAudioRecordingDevice(_selectedRecordingDeviceId);
 
         setState(() {});
       },
@@ -260,12 +254,10 @@ class _State extends State<DeviceManager> {
                 Expanded(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                     child: ElevatedButton(
                       onPressed: () async {
-                        await _engine.deviceManager
-                            .followSystemPlaybackDevice(true);
+                        await _engine.deviceManager.followSystemPlaybackDevice(true);
                         _enumeratePlaybackDevices();
                       },
                       child: const Text('followSystemPlaybackDevice'),
@@ -275,12 +267,10 @@ class _State extends State<DeviceManager> {
                 Expanded(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                     child: ElevatedButton(
                       onPressed: () async {
-                        await _engine.deviceManager
-                            .followSystemRecordingDevice(true);
+                        await _engine.deviceManager.followSystemRecordingDevice(true);
                         _enumerateRecording();
                       },
                       child: const Text('followSystemRecordingDevice'),
@@ -309,13 +299,9 @@ class _State extends State<DeviceManager> {
     return Expanded(
         child: Stack(
       children: [
-        Row(
-          children: const [
-            Expanded(
-                flex: 1,
-                child: kIsWeb
-                    ? rtc_local_view.SurfaceView()
-                    : rtc_local_view.TextureView()),
+        const Row(
+          children: [
+            Expanded(flex: 1, child: kIsWeb ? rtc_local_view.SurfaceView() : rtc_local_view.TextureView()),
           ],
         ),
         Align(

@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:destroy_irisengine_smoke_test/main.dart' as app;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:destroy_irisengine_smoke_test/main.dart' as app;
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -12,7 +12,7 @@ void main() {
   late MethodChannel awaitPageCloseChannel;
   Completer? pageClosedCompleter;
 
-    // final channel = const MethodChannel('smoke_test_channel');
+  // final channel = const MethodChannel('smoke_test_channel');
 
   setUp(() {
     pageClosedCompleter = Completer();
@@ -20,7 +20,7 @@ void main() {
     awaitPageCloseChannel.setMethodCallHandler((call) async {
       if (call.method == "page_closed") {
         debugPrint('page_closed');
-        await Future.delayed(Duration(seconds: 3));
+        await Future.delayed(const Duration(seconds: 3));
         pageClosedCompleter?.complete(null);
         return true;
       }
@@ -46,6 +46,6 @@ void main() {
 
     // await pageClosedCompleter?.future;
 
-    await Future.delayed(Duration(seconds: 30));
+    await Future.delayed(const Duration(seconds: 30));
   });
 }

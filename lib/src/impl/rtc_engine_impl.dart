@@ -1,28 +1,26 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:agora_rtc_engine/src/impl/api_types.dart';
 import 'package:agora_rtc_engine/src/classes.dart';
-import 'package:agora_rtc_engine/src/impl/media_recorder_impl.dart';
-import 'enum_converter.dart';
 import 'package:agora_rtc_engine/src/enums.dart';
-
+import 'package:agora_rtc_engine/src/impl/api_types.dart';
+import 'package:agora_rtc_engine/src/impl/media_recorder_impl.dart';
 import 'package:agora_rtc_engine/src/rtc_channel.dart';
 import 'package:agora_rtc_engine/src/rtc_device_manager.dart';
 import 'package:agora_rtc_engine/src/rtc_engine.dart';
 import 'package:agora_rtc_engine/src/rtc_engine_event_handler.dart';
-import 'rtc_engine_event_handler_impl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+
+import 'enum_converter.dart';
 import 'media_recorder_observer_impl.dart';
+import 'rtc_engine_event_handler_impl.dart';
 
 /// Implementation of [RtcEngine]
 class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   static const MethodChannel _methodChannel = MethodChannel('agora_rtc_engine');
-  static const EventChannel _eventChannel =
-      EventChannel('agora_rtc_engine/events');
+  static const EventChannel _eventChannel = EventChannel('agora_rtc_engine/events');
   static StreamSubscription? _subscription;
 
   /// Exposing methodChannel to other files
@@ -104,8 +102,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
       final buffer = eventMap['buffer'];
       final subProcess = (eventMap['subProcess'] as bool?) ?? false;
       if (subProcess) {
-        _instance?._screenShareHelper?._handler
-            ?.process(methodName, data, buffer);
+        _instance?._screenShareHelper?._handler?.process(methodName, data, buffer);
       } else {
         _instance?._handler?.process(methodName, data, buffer);
         _instance?.getMediaRecorderObserver()?.process(methodName, data);
@@ -113,8 +110,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
     });
   }
 
-  Future<T?> _invokeMethod<T>(String method,
-      [Map<String, dynamic>? arguments]) {
+  Future<T?> _invokeMethod<T>(String method, [Map<String, dynamic>? arguments]) {
     if (kIsWeb || (Platform.isWindows || Platform.isMacOS)) {
       arguments?['subProcess'] = _subProcess;
     }
@@ -207,8 +203,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> joinChannel(
-      String? token, String channelName, String? optionalInfo, int optionalUid,
+  Future<void> joinChannel(String? token, String channelName, String? optionalInfo, int optionalUid,
       [ChannelMediaOptions? options]) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineJoinChannel.index,
@@ -223,8 +218,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> switchChannel(String? token, String channelName,
-      [ChannelMediaOptions? options]) {
+  Future<void> switchChannel(String? token, String channelName, [ChannelMediaOptions? options]) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSwitchChannel.index,
       'params': jsonEncode({
@@ -378,8 +372,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> joinChannelWithUserAccount(
-      String? token, String channelName, String userAccount,
+  Future<void> joinChannelWithUserAccount(String? token, String channelName, String userAccount,
       [ChannelMediaOptions? options]) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineJoinChannelWithUserAccount.index,
@@ -743,9 +736,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> startAudioMixing(
-      String filePath, bool loopback, bool replace, int cycle,
-      [int? startPos]) {
+  Future<void> startAudioMixing(String filePath, bool loopback, bool replace, int cycle, [int? startPos]) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineStartAudioMixing.index,
       'params': jsonEncode({
@@ -789,8 +780,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> addVideoWatermark(
-      String watermarkUrl, WatermarkOptions options) {
+  Future<void> addVideoWatermark(String watermarkUrl, WatermarkOptions options) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineAddVideoWaterMark.index,
       'params': jsonEncode({
@@ -948,8 +938,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> playEffect(int soundId, String filePath, int loopCount,
-      double pitch, double pan, int gain, bool publish,
+  Future<void> playEffect(int soundId, String filePath, int loopCount, double pitch, double pan, int gain, bool publish,
       [int? startPos]) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEnginePlayEffect.index,
@@ -1099,8 +1088,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setCameraCapturerConfiguration(
-      CameraCapturerConfiguration config) {
+  Future<void> setCameraCapturerConfiguration(CameraCapturerConfiguration config) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetCameraCapturerConfiguration.index,
       'params': jsonEncode({
@@ -1110,8 +1098,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setCameraExposurePosition(
-      double positionXinView, double positionYinView) {
+  Future<void> setCameraExposurePosition(double positionXinView, double positionYinView) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetCameraExposurePosition.index,
       'params': jsonEncode({
@@ -1122,8 +1109,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setCameraFocusPositionInPreview(
-      double positionX, double positionY) {
+  Future<void> setCameraFocusPositionInPreview(double positionX, double positionY) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetCameraFocusPositionInPreview.index,
       'params': jsonEncode({
@@ -1258,13 +1244,11 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setLocalVoiceEqualization(
-      AudioEqualizationBandFrequency bandFrequency, int bandGain) {
+  Future<void> setLocalVoiceEqualization(AudioEqualizationBandFrequency bandFrequency, int bandGain) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetLocalVoiceEqualization.index,
       'params': jsonEncode({
-        'bandFrequency':
-            AudioEqualizationBandFrequencyConverter(bandFrequency).value(),
+        'bandFrequency': AudioEqualizationBandFrequencyConverter(bandFrequency).value(),
         'bandGain': bandGain,
       }),
     });
@@ -1343,8 +1327,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setRemoteVideoStreamType(
-      int userId, VideoStreamType streamType) {
+  Future<void> setRemoteVideoStreamType(int userId, VideoStreamType streamType) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetRemoteVideoStreamType.index,
       'params': jsonEncode({
@@ -1378,8 +1361,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> startAudioRecording(String filePath,
-      AudioSampleRateType sampleRate, AudioRecordingQuality quality) {
+  Future<void> startAudioRecording(String filePath, AudioSampleRateType sampleRate, AudioRecordingQuality quality) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineStartAudioRecording.index,
       'params': jsonEncode({
@@ -1391,8 +1373,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> startAudioRecordingWithConfig(
-      AudioRecordingConfiguration config) {
+  Future<void> startAudioRecordingWithConfig(AudioRecordingConfiguration config) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineStartAudioRecording.index,
       'params': jsonEncode({
@@ -1402,8 +1383,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> startChannelMediaRelay(
-      ChannelMediaRelayConfiguration channelMediaRelayConfiguration) {
+  Future<void> startChannelMediaRelay(ChannelMediaRelayConfiguration channelMediaRelayConfiguration) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineStartChannelMediaRelay.index,
       'params': jsonEncode({
@@ -1413,8 +1393,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> startRhythmPlayer(
-      String sound1, String sound2, RhythmPlayerConfig config) {
+  Future<void> startRhythmPlayer(String sound1, String sound2, RhythmPlayerConfig config) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineStartRhythmPlayer.index,
       'params': jsonEncode({
@@ -1444,15 +1423,11 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> startEchoTest(
-      {int? intervalInSeconds, EchoTestConfiguration? config}) {
-    assert(intervalInSeconds == null || config == null,
-        'Only need one of the params');
+  Future<void> startEchoTest({int? intervalInSeconds, EchoTestConfiguration? config}) {
+    assert(intervalInSeconds == null || config == null, 'Only need one of the params');
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineStartEchoTest.index,
-      'params': jsonEncode(config == null
-          ? {'intervalInSeconds': intervalInSeconds}
-          : {'config': config.toJson()}),
+      'params': jsonEncode(config == null ? {'intervalInSeconds': intervalInSeconds} : {'config': config.toJson()}),
     });
   }
 
@@ -1543,8 +1518,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> updateChannelMediaRelay(
-      ChannelMediaRelayConfiguration channelMediaRelayConfiguration) {
+  Future<void> updateChannelMediaRelay(ChannelMediaRelayConfiguration channelMediaRelayConfiguration) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineUpdateChannelMediaRelay.index,
       'params': jsonEncode({
@@ -1623,8 +1597,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> sendCustomReportMessage(
-      String id, String category, String event, String label, int value) {
+  Future<void> sendCustomReportMessage(String id, String category, String event, String label, int value) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSendCustomReportMessage.index,
       'params': jsonEncode({
@@ -1638,13 +1611,11 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setAudioSessionOperationRestriction(
-      AudioSessionOperationRestriction restriction) {
+  Future<void> setAudioSessionOperationRestriction(AudioSessionOperationRestriction restriction) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetAudioSessionOperationRestriction.index,
       'params': jsonEncode({
-        'restriction':
-            AudioSessionOperationRestrictionConverter(restriction).value(),
+        'restriction': AudioSessionOperationRestrictionConverter(restriction).value(),
       }),
     });
   }
@@ -1658,8 +1629,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setAudioEffectParameters(
-      AudioEffectPreset preset, int param1, int param2) {
+  Future<void> setAudioEffectParameters(AudioEffectPreset preset, int param1, int param2) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetAudioEffectParameters.index,
       'params': jsonEncode({
@@ -1740,8 +1710,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setVoiceBeautifierParameters(
-      VoiceBeautifierPreset preset, int param1, int param2) {
+  Future<void> setVoiceBeautifierParameters(VoiceBeautifierPreset preset, int param1, int param2) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetVoiceBeautifierParameters.index,
       'params': jsonEncode({
@@ -1850,8 +1819,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> updateScreenCaptureParameters(
-      ScreenCaptureParameters captureParams) {
+  Future<void> updateScreenCaptureParameters(ScreenCaptureParameters captureParams) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineUpdateScreenCaptureParameters.index,
       'params': jsonEncode({
@@ -1861,8 +1829,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> updateScreenCaptureParametersMobile(
-      ScreenCaptureParameters2 parameters) {
+  Future<void> updateScreenCaptureParametersMobile(ScreenCaptureParameters2 parameters) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineUpdateScreenCaptureParameters.index,
       'params': jsonEncode({
@@ -1882,8 +1849,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> startScreenCapture(int windowId,
-      [int captureFreq = 0, Rect? rect, int bitrate = 0]) {
+  Future<void> startScreenCapture(int windowId, [int captureFreq = 0, Rect? rect, int bitrate = 0]) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineStartScreenCapture.index,
       'params': jsonEncode({
@@ -1907,9 +1873,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   Future<void> setScreenCaptureScenario(ScreenScenarioType screenScenario) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngineExt.kEngineSetScreenCaptureScenario,
-      'params': jsonEncode({
-        'screenScenario': ScreenScenarioTypeConverter(screenScenario).value()
-      }),
+      'params': jsonEncode({'screenScenario': ScreenScenarioTypeConverter(screenScenario).value()}),
     });
   }
 
@@ -1924,8 +1888,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> enableVirtualBackground(
-      bool enabled, VirtualBackgroundSource backgroundSource) {
+  Future<void> enableVirtualBackground(bool enabled, VirtualBackgroundSource backgroundSource) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineEnableVirtualBackground.index,
       'params': jsonEncode({
@@ -1980,8 +1943,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setColorEnhanceOptions(
-      bool enabled, ColorEnhanceOptions option) {
+  Future<void> setColorEnhanceOptions(bool enabled, ColorEnhanceOptions option) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetColorEnhanceOptions.index,
       'params': jsonEncode({
@@ -1992,8 +1954,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setLowlightEnhanceOptions(
-      bool enabled, LowLightEnhanceOptions option) {
+  Future<void> setLowlightEnhanceOptions(bool enabled, LowLightEnhanceOptions option) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetLowlightEnhanceOptions.index,
       'params': jsonEncode({
@@ -2004,8 +1965,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setVideoDenoiserOptions(
-      bool enabled, VideoDenoiserOptions option) {
+  Future<void> setVideoDenoiserOptions(bool enabled, VideoDenoiserOptions option) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetVideoDenoiserOptions.index,
       'params': jsonEncode({
@@ -2016,8 +1976,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> startRtmpStreamWithTranscoding(
-      String url, LiveTranscoding transcoding) {
+  Future<void> startRtmpStreamWithTranscoding(String url, LiveTranscoding transcoding) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineStartRtmpStreamWithTranscoding.index,
       'params': jsonEncode({
@@ -2068,8 +2027,7 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
-  Future<void> setRemoteUserSpatialAudioParams(
-      int uid, SpatialAudioParams spatialAudioParams) {
+  Future<void> setRemoteUserSpatialAudioParams(int uid, SpatialAudioParams spatialAudioParams) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngineExt.kEngineSetRemoteUserSpatialAudioParams,
       'params': jsonEncode({

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:agora_rtc_engine/rtc_local_view.dart' as rtc_local_view;
@@ -58,8 +57,7 @@ class _State extends State<StreamMessage> {
     if (defaultTargetPlatform == TargetPlatform.android) {
       await [Permission.microphone, Permission.camera].request();
     }
-    await _engine.joinChannel(
-        config.token, _channelIdController.text, null, config.uid);
+    await _engine.joinChannel(config.token, _channelIdController.text, null, config.uid);
   }
 
   Future<void> _leaveChannel() async {
@@ -126,8 +124,7 @@ class _State extends State<StreamMessage> {
         _showMyDialog(uid, streamId, utf8.decode(data));
         logSink.log('streamMessage $uid $streamId $data');
       },
-      streamMessageError:
-          (int uid, int streamId, ErrorCode error, int missed, int cached) {
+      streamMessageError: (int uid, int streamId, ErrorCode error, int missed, int cached) {
         logSink.log('streamMessage $uid $streamId $error $missed $cached');
       },
     ));
@@ -139,11 +136,9 @@ class _State extends State<StreamMessage> {
     }
 
     try {
-      var streamId = await _engine
-          .createDataStreamWithConfig(DataStreamConfig(false, false));
+      var streamId = await _engine.createDataStreamWithConfig(DataStreamConfig(false, false));
       if (streamId != null) {
-        await _engine.sendStreamMessage(
-            streamId, Uint8List.fromList(utf8.encode(_controller.text)));
+        await _engine.sendStreamMessage(streamId, Uint8List.fromList(utf8.encode(_controller.text)));
       }
       _controller.clear();
     } catch (e) {
@@ -202,9 +197,7 @@ class _State extends State<StreamMessage> {
       const SizedBox(
         height: 120,
         width: 120,
-        child: kIsWeb
-            ? rtc_local_view.SurfaceView()
-            : rtc_local_view.TextureView(),
+        child: kIsWeb ? rtc_local_view.SurfaceView() : rtc_local_view.TextureView(),
       ),
     ];
     if (remoteUids.isNotEmpty) {

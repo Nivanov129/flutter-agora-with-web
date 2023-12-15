@@ -1,24 +1,22 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:agora_rtc_engine/src/impl/api_types.dart';
-import 'enum_converter.dart';
-import 'package:agora_rtc_engine/src/rtc_channel_event_handler.dart';
-import 'rtc_channel_event_handler_impl.dart';
 import 'package:agora_rtc_engine/src/rtc_channel.dart';
+import 'package:agora_rtc_engine/src/rtc_channel_event_handler.dart';
 import 'package:flutter/services.dart';
+
+import 'enum_converter.dart';
+import 'rtc_channel_event_handler_impl.dart';
 
 ///
 /// Provides methods that enable real-time communications in an RtcChannel channel.
 /// Call create to create an RtcChannel object.
 ///
 class RtcChannelImpl implements RtcChannel {
-  static const MethodChannel _methodChannel =
-      MethodChannel('agora_rtc_channel');
-  static const EventChannel _eventChannel =
-      EventChannel('agora_rtc_channel/events');
+  static const MethodChannel _methodChannel = MethodChannel('agora_rtc_channel');
+  static const EventChannel _eventChannel = EventChannel('agora_rtc_channel/events');
   static final Stream _stream = _eventChannel.receiveBroadcastStream();
   static StreamSubscription? _subscription;
 
@@ -33,13 +31,10 @@ class RtcChannelImpl implements RtcChannel {
 
   RtcChannelImpl._(this._channelId);
 
-  Future<T?> _invokeMethod<T>(String method,
-      [Map<String, dynamic>? arguments]) {
+  Future<T?> _invokeMethod<T>(String method, [Map<String, dynamic>? arguments]) {
     return _methodChannel.invokeMethod(
       method,
-      arguments == null
-          ? {'channelId': channelId}
-          : {'channelId': channelId, ...arguments},
+      arguments == null ? {'channelId': channelId} : {'channelId': channelId, ...arguments},
     );
   }
 
@@ -146,9 +141,7 @@ class RtcChannelImpl implements RtcChannel {
       final map = Map<String, dynamic>.from(jsonDecode(data));
       channelId = map.remove('channelId');
       data = jsonEncode(map);
-      _channels[channelId]
-          ?._handler
-          ?.process(channelId, methodName, data, buffer);
+      _channels[channelId]?._handler?.process(channelId, methodName, data, buffer);
     });
   }
 
@@ -165,8 +158,7 @@ class RtcChannelImpl implements RtcChannel {
   }
 
   @override
-  Future<void> joinChannel(String? token, String? optionalInfo, int optionalUid,
-      ChannelMediaOptions options) {
+  Future<void> joinChannel(String? token, String? optionalInfo, int optionalUid, ChannelMediaOptions options) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeChannel.kChannelJoinChannel.index,
       'params': jsonEncode({
@@ -180,8 +172,7 @@ class RtcChannelImpl implements RtcChannel {
   }
 
   @override
-  Future<void> joinChannelWithUserAccount(
-      String? token, String userAccount, ChannelMediaOptions options) {
+  Future<void> joinChannelWithUserAccount(String? token, String userAccount, ChannelMediaOptions options) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeChannel.kChannelJoinChannelWithUserAccount.index,
       'params': jsonEncode({
@@ -294,8 +285,7 @@ class RtcChannelImpl implements RtcChannel {
   @override
   Future<void> setDefaultMuteAllRemoteAudioStreams(bool muted) {
     return _invokeMethod('callApi', {
-      'apiType':
-          ApiTypeChannel.kChannelSetDefaultMuteAllRemoteAudioStreams.index,
+      'apiType': ApiTypeChannel.kChannelSetDefaultMuteAllRemoteAudioStreams.index,
       'params': jsonEncode({
         'channelId': channelId,
         'mute': muted,
@@ -329,8 +319,7 @@ class RtcChannelImpl implements RtcChannel {
   @override
   Future<void> setDefaultMuteAllRemoteVideoStreams(bool muted) {
     return _invokeMethod('callApi', {
-      'apiType':
-          ApiTypeChannel.kChannelSetDefaultMuteAllRemoteVideoStreams.index,
+      'apiType': ApiTypeChannel.kChannelSetDefaultMuteAllRemoteVideoStreams.index,
       'params': jsonEncode({
         'channelId': channelId,
         'mute': muted,
@@ -502,8 +491,7 @@ class RtcChannelImpl implements RtcChannel {
   }
 
   @override
-  Future<void> setRemoteVideoStreamType(
-      int userId, VideoStreamType streamType) {
+  Future<void> setRemoteVideoStreamType(int userId, VideoStreamType streamType) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeChannel.kChannelSetRemoteVideoStreamType.index,
       'params': jsonEncode({
@@ -528,8 +516,7 @@ class RtcChannelImpl implements RtcChannel {
   }
 
   @override
-  Future<void> startChannelMediaRelay(
-      ChannelMediaRelayConfiguration channelMediaRelayConfiguration) {
+  Future<void> startChannelMediaRelay(ChannelMediaRelayConfiguration channelMediaRelayConfiguration) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeChannel.kChannelStartChannelMediaRelay.index,
       'params': jsonEncode({
@@ -560,8 +547,7 @@ class RtcChannelImpl implements RtcChannel {
   }
 
   @override
-  Future<void> updateChannelMediaRelay(
-      ChannelMediaRelayConfiguration channelMediaRelayConfiguration) {
+  Future<void> updateChannelMediaRelay(ChannelMediaRelayConfiguration channelMediaRelayConfiguration) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeChannel.kChannelUpdateChannelMediaRelay.index,
       'params': jsonEncode({
@@ -709,8 +695,7 @@ class RtcChannelImpl implements RtcChannel {
   }
 
   @override
-  Future<void> setRemoteUserSpatialAudioParams(
-      int uid, SpatialAudioParams spatialAudioParams) {
+  Future<void> setRemoteUserSpatialAudioParams(int uid, SpatialAudioParams spatialAudioParams) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeChannelExt.kChannelSetRemoteUserSpatialAudioParams,
       'params': jsonEncode({

@@ -3,11 +3,11 @@ import 'dart:typed_data';
 
 import 'package:agora_rtc_engine/rtc_channel.dart';
 import 'package:agora_rtc_engine/rtc_engine.dart';
+import 'package:agora_rtc_engine/src/impl/api_types.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:integration_test_app/main.dart' as app;
 import 'package:integration_test_app/src/fake_iris_rtc_engine.dart';
-import 'package:agora_rtc_engine/src/impl/api_types.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -68,8 +68,7 @@ void main() {
       await fakeIrisEngine.initialize();
 
       rtcChannel = await _createChannel();
-      final ClientRoleOptions options = ClientRoleOptions(
-          audienceLatencyLevel: AudienceLatencyLevelType.LowLatency);
+      final ClientRoleOptions options = ClientRoleOptions(audienceLatencyLevel: AudienceLatencyLevelType.LowLatency);
       await rtcChannel.setClientRole(ClientRole.Broadcaster, options);
       fakeIrisEngine.expectCalledApi(
         ApiTypeChannel.kChannelSetClientRole.index,
@@ -89,8 +88,7 @@ void main() {
     await fakeIrisEngine.initialize();
 
     rtcChannel = await _createChannel();
-    final ChannelMediaOptions options =
-        ChannelMediaOptions(autoSubscribeAudio: true);
+    final ChannelMediaOptions options = ChannelMediaOptions(autoSubscribeAudio: true);
     await rtcChannel.joinChannel(null, null, 10, options);
     fakeIrisEngine.expectCalledApi(
       ApiTypeChannel.kChannelJoinChannel.index,
@@ -111,8 +109,7 @@ void main() {
     await fakeIrisEngine.initialize();
 
     rtcChannel = await _createChannel();
-    final ChannelMediaOptions options =
-        ChannelMediaOptions(autoSubscribeAudio: true);
+    final ChannelMediaOptions options = ChannelMediaOptions(autoSubscribeAudio: true);
     await rtcChannel.joinChannelWithUserAccount(null, 'user1', options);
     fakeIrisEngine.expectCalledApi(
       ApiTypeChannel.kChannelJoinChannelWithUserAccount.index,
@@ -295,8 +292,7 @@ void main() {
     );
   });
 
-  testWidgets('setDefaultMuteAllRemoteAudioStreams',
-      (WidgetTester tester) async {
+  testWidgets('setDefaultMuteAllRemoteAudioStreams', (WidgetTester tester) async {
     app.main();
     await tester.pumpAndSettle();
     fakeIrisEngine = FakeIrisRtcEngine(isMockChannel: true);
@@ -351,8 +347,7 @@ void main() {
     );
   });
 
-  testWidgets('setDefaultMuteAllRemoteVideoStreams',
-      (WidgetTester tester) async {
+  testWidgets('setDefaultMuteAllRemoteVideoStreams', (WidgetTester tester) async {
     app.main();
     await tester.pumpAndSettle();
     fakeIrisEngine = FakeIrisRtcEngine(isMockChannel: true);
@@ -377,8 +372,7 @@ void main() {
     await fakeIrisEngine.initialize();
 
     rtcChannel = await _createChannel();
-    final LiveInjectStreamConfig config =
-        LiveInjectStreamConfig(width: 10, height: 10);
+    final LiveInjectStreamConfig config = LiveInjectStreamConfig(width: 10, height: 10);
     await rtcChannel.addInjectStreamUrl('https://example.com', config);
     fakeIrisEngine.expectCalledApi(
       ApiTypeChannel.kChannelAddInjectStreamUrl.index,
@@ -565,8 +559,7 @@ void main() {
         }),
       );
     },
-    skip:
-        true, // TODO(littlegnal): [MS-99372] Need comfirm how to deal with this function
+    skip: true, // TODO(littlegnal): [MS-99372] Need comfirm how to deal with this function
   );
 
   testWidgets('setEncryptionSecret', (WidgetTester tester) async {
@@ -701,8 +694,7 @@ void main() {
     await fakeIrisEngine.initialize();
 
     rtcChannel = await _createChannel();
-    final ChannelMediaRelayConfiguration config =
-        ChannelMediaRelayConfiguration(
+    final ChannelMediaRelayConfiguration config = ChannelMediaRelayConfiguration(
       ChannelMediaInfo('testapi', 10),
       [ChannelMediaInfo('testapi', 10)],
     );
@@ -759,8 +751,7 @@ void main() {
     await fakeIrisEngine.initialize();
 
     rtcChannel = await _createChannel();
-    final ChannelMediaRelayConfiguration config =
-        ChannelMediaRelayConfiguration(
+    final ChannelMediaRelayConfiguration config = ChannelMediaRelayConfiguration(
       ChannelMediaInfo('testapi', 10),
       [ChannelMediaInfo('testapi', 10)],
     );
